@@ -1,5 +1,4 @@
-#Moshe Yaakov Cohen
-#ID 324692680
+
 
 # Protocol utilities for the chat application
 

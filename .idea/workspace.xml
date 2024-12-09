@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="Final chat program">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="Final DNS Enumeration">
+      <change beforePath="$PROJECT_DIR$/DNS enumeration/dns_enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/DNS enumeration/dns_enum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat_exercise/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_exercise/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat_exercise/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_exercise/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat_exercise/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_exercise/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +23,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
@@ -229,6 +238,7 @@
       <workItem from="1733750134921" duration="5067000" />
       <workItem from="1733756839943" duration="366000" />
       <workItem from="1733757547997" duration="1459000" />
+      <workItem from="1733759111588" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="Final chat program">
       <option name="closed" value="true" />
@@ -254,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733758160207</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final DNS Enumeration">
+      <option name="closed" value="true" />
+      <created>1733759274584</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733759274584</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +280,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final chat program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final chat program" />
+    <MESSAGE value="Final DNS Enumeration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final DNS Enumeration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Network$client.coverage" NAME="client Coverage Results" MODIFIED="1733061635388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

@@ -1,5 +1,4 @@
-#Moshe Yaakov Cohen
-#ID 324692680
+
 import socket
 import select
 import msvcrt
