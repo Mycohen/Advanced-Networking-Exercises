@@ -9,7 +9,7 @@ import protocol
 import sys
 
 
-# Worker thread for receiving messages
+# Worker thread for receiving messages.
 class ReceiveThread(QThread):
     new_message = Signal(str)
 
