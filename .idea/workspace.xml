@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="version with bug">
+    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="almost there">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" afterDir="false" />
     </list>
@@ -266,7 +266,7 @@
       <workItem from="1734449032072" duration="4831000" />
       <workItem from="1734455862390" duration="1500000" />
       <workItem from="1734518549740" duration="2016000" />
-      <workItem from="1734862798066" duration="8322000" />
+      <workItem from="1734862798066" duration="15936000" />
     </task>
     <task id="LOCAL-00001" summary="Final chat program">
       <option name="closed" value="true" />
@@ -340,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734871864824</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="almost there">
+      <option name="closed" value="true" />
+      <created>1734875535338</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734875535338</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +359,8 @@
     <MESSAGE value="Beginning HTTP server" />
     <MESSAGE value="Final DNS Enumeration" />
     <MESSAGE value="version with bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="version with bug" />
+    <MESSAGE value="almost there" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost there" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Network$client.coverage" NAME="client Coverage Results" MODIFIED="1733061635388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -362,7 +371,7 @@
     <SUITE FILE_PATH="coverage/client_py$dns_enumeration.coverage" NAME="dns_enum Coverage Results" MODIFIED="1733756275432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DNS enumeration" />
     <SUITE FILE_PATH="coverage/client_py$SOA.coverage" NAME="SOA Coverage Results" MODIFIED="1733741618615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DNS enumeration" />
     <SUITE FILE_PATH="coverage/client_py$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1733653049863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chat_ui_py$HTTP_server_shell.coverage" NAME="HTTP_server_shell Coverage Results" MODIFIED="1734875179756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HTTP" />
+    <SUITE FILE_PATH="coverage/chat_ui_py$HTTP_server_shell.coverage" NAME="HTTP_server_shell Coverage Results" MODIFIED="1734882461669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HTTP" />
     <SUITE FILE_PATH="coverage/Network$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1732556493963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Network$server.coverage" NAME="server Coverage Results" MODIFIED="1733061641889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -37,16 +37,25 @@ def handle_client_request(resource, client_socket):
             params = dict(param.split("=") for param in query.split("&"))
             height = int(params.get("height", 0))
             width = int(params.get("width", 0))
-            area = height * width
+            area = height * width/2
             response = f"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nThe area is: {area}"
             client_socket.sendall(response.encode())
             return
 
-        # Handle Redirection (302)
+        # Handle Redirection (302) with Validation
         if resource in REDIRECTION_DICTIONARY:
             new_location = REDIRECTION_DICTIONARY[resource]
-            response = f"HTTP/1.1 302 Moved Temporarily\r\nLocation: {new_location}\r\n\r\n"
-            client_socket.sendall(response.encode())
+            redirected_path = os.path.join(WEBROOT, new_location.lstrip("/"))
+
+            if os.path.exists(redirected_path):  # Check if the redirected file exists
+                print(f"Redirecting {resource} to {new_location} with 302 Moved Temporarily")
+                response = f"HTTP/1.1 302 Moved Temporarily\r\nLocation: {new_location}\r\n\r\n"
+                client_socket.sendall(response.encode())
+            else:
+                # If the redirected target doesn't exist, return 404
+                print(f"Redirected resource {new_location} not found. Sending 404 Not Found.")
+                response = "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nRedirected file not found"
+                client_socket.sendall(response.encode())
             return
 
         # Default to `index.html` if the resource is empty
@@ -58,7 +67,7 @@ def handle_client_request(resource, client_socket):
 
         # Check if the file exists
         if not os.path.exists(file_path):
-            response = "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nFile not found"
+            response = "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\n404 not found"
             client_socket.sendall(response.encode())
             return
 
