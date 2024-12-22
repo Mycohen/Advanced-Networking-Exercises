@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="Final DNS Enumeration">
-      <change afterPath="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,35 +43,59 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.SOA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.audio.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dns_enumeration.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scapytest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.server.executor&quot;: &quot;Run&quot;,
-    &quot;Python.server_1 (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.server_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.HTTP_server_shell.executor": "Run",
+    "Python.SOA.executor": "Run",
+    "Python.audio.executor": "Run",
+    "Python.client.executor": "Run",
+    "Python.dns_enumeration.executor": "Run",
+    "Python.scapytest.executor": "Run",
+    "Python.server.executor": "Run",
+    "Python.server_1 (1).executor": "Run",
+    "Python.server_1.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mycoh\PycharmProjects\Advanced Computer Networks Exercises\Tests" />
       <recent name="C:\Users\mycoh\PycharmProjects\Network\chat_exercise" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dns_enum">
+  <component name="RunManager" selected="Python.HTTP_server_shell">
+    <configuration name="HTTP_server_shell" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Network" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HTTP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HTTP/HTTP_server_shell.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dns_enum" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Network" />
       <option name="ENV_FILES" value="" />
@@ -189,6 +213,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.HTTP_server_shell" />
         <item itemvalue="Python.scapytest" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.server_1" />
@@ -240,6 +265,8 @@
       <workItem from="1733761452809" duration="2572000" />
       <workItem from="1734449032072" duration="4831000" />
       <workItem from="1734455862390" duration="1500000" />
+      <workItem from="1734518549740" duration="2016000" />
+      <workItem from="1734862798066" duration="6803000" />
     </task>
     <task id="LOCAL-00001" summary="Final chat program">
       <option name="closed" value="true" />
@@ -289,7 +316,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733759543631</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Final DNS Enumeration">
+      <option name="closed" value="true" />
+      <created>1734518628209</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734518628209</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Final DNS Enumeration">
+      <option name="closed" value="true" />
+      <created>1734518652817</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734518652817</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +340,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final chat program" />
+    <MESSAGE value="Beginning HTTP server" />
     <MESSAGE value="Final DNS Enumeration" />
     <option name="LAST_COMMIT_MESSAGE" value="Final DNS Enumeration" />
   </component>
@@ -309,6 +353,7 @@
     <SUITE FILE_PATH="coverage/client_py$dns_enumeration.coverage" NAME="dns_enum Coverage Results" MODIFIED="1733756275432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DNS enumeration" />
     <SUITE FILE_PATH="coverage/client_py$SOA.coverage" NAME="SOA Coverage Results" MODIFIED="1733741618615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DNS enumeration" />
     <SUITE FILE_PATH="coverage/client_py$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1733653049863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chat_ui_py$HTTP_server_shell.coverage" NAME="HTTP_server_shell Coverage Results" MODIFIED="1734871642246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HTTP" />
     <SUITE FILE_PATH="coverage/Network$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1732556493963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Network$server.coverage" NAME="server Coverage Results" MODIFIED="1733061641889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

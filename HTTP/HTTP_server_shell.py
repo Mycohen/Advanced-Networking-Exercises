@@ -1,45 +1,104 @@
-
-
 import socket
+import os
 
-# TO DO: set constants
+WEBROOT = "webroot"  # Set the base directory for your web resources
+
 IP = '0.0.0.0'
 PORT = 80
 SOCKET_TIMEOUT = 0.5
-REDIRECTION_DICTIONARY = {old_resource_name: new_resource_name} # Programmer should pick the old and new resources
-FIXED_RESPONSE = "HTTP/1.1 200 OK\r\nContent-Length: 5\r\nContent-Type: text/html; charset=ISO-8859-1\r\n\r\nhello"
+
+REDIRECTION_DICTIONARY = {"/old-page.html": "/new-page.html"}  # Example redirection mapping
 VALID_HTTP_METHODS = ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH", "TRACE", "CONNECT"]
 VALID_HTTP_VERSIONS = ["HTTP/1.0", "HTTP/1.1", "HTTP/2", "HTTP/3"]
 
 def get_file_data(filename):
     """ Get data from file """
-    return
+    with open(filename, "rb") as file:
+        return file.read()
 
 
-def handle_client_request(resource, socket):
-    """ Check the required resource, generate proper HTTP response and send to client"""
-    # TO DO : add code that given a resource (URL and parameters) generates the proper response
-    return
+def handle_client_request(resource, client_socket):
+    """ Check the required resource, generate proper HTTP response, and send to client """
+    try:
+        # Handle `/calculate-next`
+        if resource.startswith("/calculate-next"):
+            query = resource.split("?")[1]  # Extract the query string after "?"
+            params = dict(param.split("=") for param in query.split("&"))
+            num = int(params.get("num", 0))  # Default to 0 if `num` is not provided
 
+            # Calculate the next number
+            next_num = num + 1
 
-    if resource == '':
+            # Return the response
+            response = f"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nNext number is: {next_num}"
+            client_socket.sendall(response.encode())
+            return
 
+        # Handle `/calculate-area`
+        elif resource.startswith("/calculate-area"):
+            query = resource.split("?")[1]
+            params = dict(param.split("=") for param in query.split("&"))
+            height = int(params.get("height", 0))
+            width = int(params.get("width", 0))
+            area = (height * width) / 2
+            response = f"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nThe area is: {area}"
+            client_socket.sendall(response.encode())
+            return
 
-    # TO DO: check if URL had been redirected, not available or other error code. For example:
-    if url in REDIRECTION_DICTIONARY:
-        # TO DO: send 302 redirection response
+        # Handle Redirection (302)
+        if resource in REDIRECTION_DICTIONARY:
+            new_location = REDIRECTION_DICTIONARY[resource]
+            response = (
+                f"HTTP/1.1 302 Moved Temporarily\r\n"
+                f"Location: {new_location}\r\n\r\n"
+            )
+            client_socket.sendall(response.encode())
+            return
 
-    # TO DO: extract requested file tupe from URL (html, jpg etc)
-    if filetype == 'html':
-        http_header = # TO DO: generate proper HTTP header
-    elif filetype == 'jpg':
-        http_header = # TO DO: generate proper jpg header
-    # TO DO: handle all other headers
+        # Default to `index.html` if the resource is empty
+        if resource == '/':
+            resource = '/index.html'
 
-    # TO DO: read the data from the file and send it to the client
-    data = get_file_data(filename)
+        # Remove leading slash and construct the full file path
+        file_path = os.path.join(WEBROOT, resource.lstrip("/"))
 
+        # Check if the resource exists
+        if not os.path.exists(file_path):
+            # Return 404 Not Found if the file does not exist
+            response = "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nFile not found"
+            client_socket.sendall(response.encode())
+            return
 
+        # Determine the file type and set the Content-Type header
+        file_extension = file_path.split(".")[-1]
+        content_types = {
+            "html": "text/html",
+            "css": "text/css",
+            "js": "application/javascript",
+            "png": "image/png",
+            "jpg": "image/jpeg",
+            "jpeg": "image/jpeg",
+            "ico": "image/x-icon"
+        }
+        content_type = content_types.get(file_extension, "application/octet-stream")
+
+        # Read the file content
+        file_data = get_file_data(file_path)
+
+        # Create and send the HTTP response
+        response_headers = (
+            f"HTTP/1.1 200 OK\r\n"
+            f"Content-Type: {content_type}\r\n"
+            f"Content-Length: {len(file_data)}\r\n"
+            f"\r\n"
+        ).encode()
+        client_socket.sendall(response_headers + file_data)
+
+    except Exception as e:
+        # Handle unexpected file read errors
+        error_message = f"Error processing request: {e}"
+        response = f"HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/plain\r\n\r\n{error_message}"
+        client_socket.sendall(response.encode())
 
 
 def validate_HTTP_request(request):
@@ -70,6 +129,7 @@ def validate_HTTP_request(request):
     except Exception as e:
         print(f"Error while parsing request: {e}")
         return False, ""
+
 
 def handle_client(socket):
     """ Handles client requests: verifies client's requests are legal HTTP, calls function to handle the requests """
