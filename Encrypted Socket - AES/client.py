@@ -1,8 +1,3 @@
-"""Encrypted socket client implementation
-   Author:
-   Date:
-"""
-
 import socket
 import protocol
 
