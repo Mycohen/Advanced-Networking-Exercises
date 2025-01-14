@@ -26,6 +26,7 @@ DIFFIE_HELLMAN_P = 65521  # A 16-bit prime number
 DIFFIE_HELLMAN_G = 65309  # A generator for Diffie-Hellman
 
 # Symmetric Encryption
+# Symmetric Encryption
 def symmetric_encryption(input_data, key):
     """
     Encrypt data using a block cipher.
@@ -109,7 +110,6 @@ def symmetric_decryption(input_data, key):
 
     return bytes(decrypted_data)
 
-
 # Diffie-Hellman Key Exchange
 def diffie_hellman_choose_private_key():
     """Generate a random 16-bit private key."""
@@ -130,17 +130,14 @@ def diffie_hellman_calc_shared_secret(other_side_public, my_private):
 def calc_hash(message):
     """
     Create a 16-bit hash of a message.
-    :param message: The input message (string).
+    :param message: The input message (bytes).
     :return: A 16-bit hash (integer).
     """
     hash_value = 0xFFFF
-
-    for i, char in enumerate(message):
-        value = (ord(char) + i) & 0xFFFF
-        hash_value ^= value
+    for byte in message:
+        hash_value ^= byte
         hash_value = ((hash_value << 5) | (hash_value >> 11)) & 0xFFFF
-        hash_value = (hash_value * 31 + value) & 0xFFFF
-
+        hash_value = (hash_value * 31 + byte) & 0xFFFF
     return hash_value
 
 
@@ -160,31 +157,30 @@ def calc_signature(hash, RSA_private_key, N):
 def create_msg(data):
     """
     Create a message with a length field.
-    :param data: The message data.
-    :return: The message with length prepended.
+    :param data: The message data (as bytes).
+    :return: The message with length prepended (as bytes).
     """
-    data_length = len(data)
-    length_field = str(data_length).zfill(LENGTH_FIELD_SIZE)
-    return f"{length_field}{data}"
+    length_field = len(data).to_bytes(LENGTH_FIELD_SIZE, byteorder="big")
+    return length_field + data
 
 
 def get_msg(my_socket):
     """
     Extract the message from the socket.
     :param my_socket: The socket to read from.
-    :return: A tuple (success, message/error).
+    :return: A tuple (success, message as bytes).
     """
     try:
-        length_field = my_socket.recv(LENGTH_FIELD_SIZE).decode()
-        if not length_field.isdigit():
-            return False, "Error: Invalid length field"
-        message_length = int(length_field)
-        message = my_socket.recv(message_length).decode()
+        length_field = my_socket.recv(LENGTH_FIELD_SIZE)
+        if len(length_field) < LENGTH_FIELD_SIZE:
+            return False, b""
+        message_length = int.from_bytes(length_field, byteorder="big")
+        message = my_socket.recv(message_length)
         if len(message) != message_length:
-            return False, "Error: Message length mismatch"
+            return False, b""
         return True, message
     except Exception as e:
-        return False, f"Error: {str(e)}"
+        return False, b""
 
 
 # RSA Key Management
@@ -192,36 +188,26 @@ def check_RSA_public_key(key, totient):
     """Check if a public key is valid for RSA."""
     return key < totient and gcd(key, totient) == 1
 
+
 def generate_random_p_q():
-    primes = generate_primes(99, pow(2, 16) - 1)
-    length = len(primes)
-    p = primes[random.randint(0, length - 1)]
-    q = primes[random.randint(0, length - 1)]
-    while p==q:
-        q = primes[random.randint(0, length - 1)]
+    primes = generate_primes(pow(2,10), pow(2, 16) - 1)
+    p, q = random.sample(primes, 2)
     return p, q
 
 
-def get_RSA_public_key(P,Q):
+def get_RSA_public_key(P, Q):
     """
     Generate an RSA public key (e, N).
     :return: A tuple (e, N).
     """
-
-
     N = P * Q
     Totient = (P - 1) * (Q - 1)
 
-    e = None
     for candidate in range(2, Totient):
         if check_RSA_public_key(candidate, Totient):
-            e = candidate
-            break
+            return candidate, N
 
-    if e is None:
-        raise ValueError("Failed to find a valid public key.")
-
-    return e, N
+    raise ValueError("Failed to find a valid public key.")
 
 
 def get_RSA_private_key(p, q, public_key):
@@ -251,19 +237,11 @@ def generate_primes(start, end):
     """Generate a list of prime numbers in a given range."""
     if start > end:
         return []
-
-    if start < 2:
-        start = 2
-
-    is_prime = [True] * (end + 1)
-    is_prime[0] = is_prime[1] = False
-
-    for i in range(2, int(end**0.5) + 1):
-        if is_prime[i]:
-            for j in range(i * i, end + 1, i):
-                is_prime[j] = False
-
-    return [i for i in range(start, end + 1) if is_prime[i]]
+    primes = []
+    for num in range(max(start, 2), end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
 
 
 def mod_inverse(a, m):

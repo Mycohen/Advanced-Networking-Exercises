@@ -15,11 +15,17 @@ def my_test():
     decrypted_data = protocol.symmetric_decryption(encrypted_data, key)
     print(f"Decrypted Data: {decrypted_data}")
 
+
     # Verify if decryption matches the original plaintext
     if decrypted_data == plaintext:
         print("Symmetric encryption and decryption test passed!")
     else:
         print("Symmetric encryption and decryption test failed!")
+    hashed_data = protocol.calc_hash(plaintext)
+    print(hashed_data)
+    plaintext2 = b"Hello secure socket!"
+    hashed_data = protocol.calc_hash(plaintext2)
+    print(hashed_data)
 
 # Run the test
 if __name__ == "__main__":
