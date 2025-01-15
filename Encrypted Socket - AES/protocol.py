@@ -26,7 +26,6 @@ DIFFIE_HELLMAN_P = 65521  # A 16-bit prime number
 DIFFIE_HELLMAN_G = 65309  # A generator for Diffie-Hellman
 
 # Symmetric Encryption
-# Symmetric Encryption
 def symmetric_encryption(input_data, key):
     """
     Encrypt data using a block cipher.
@@ -151,8 +150,8 @@ def calc_signature(hash, RSA_private_key, N):
     :return: The digital signature (integer).
     """
     return pow(hash, RSA_private_key, N)
-
-
+def extract_hash(signed, e, n):
+    return pow(signed, e,n)
 # Message Protocol
 def create_msg(data):
     """
@@ -202,23 +201,21 @@ def get_RSA_public_key(P, Q):
     """
     N = P * Q
     Totient = (P - 1) * (Q - 1)
+    while True:
+        e= random.randint(2, Totient-1)
+        if is_prime(e) and Totient % e!= 0:
+            return e,N
 
-    for candidate in range(2, Totient):
-        if check_RSA_public_key(candidate, Totient):
-            return candidate, N
 
-    raise ValueError("Failed to find a valid public key.")
+
+
+
 
 
 def get_RSA_private_key(p, q, public_key):
-    """
-    Calculate the RSA private key.
-    :param p: Prime number P.
-    :param q: Prime number Q.
-    :param public_key: Public key (e).
-    :return: The private key (d).
-    """
     totient = (p - 1) * (q - 1)
+    if gcd(public_key, totient) != 1:
+        raise ValueError("Public key and totient are not coprime.")
     return mod_inverse(public_key, totient)
 
 

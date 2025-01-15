@@ -17,11 +17,9 @@ def main():
         client_socket, client_address = server_socket.accept()
         print("Client connected")
 
-        print("# Step 1: server")
         # Step 1: Perform Diffie-Hellman key exchange
         server_DH_private_key = protocol.diffie_hellman_choose_private_key()
         server_DH_public_key = protocol.diffie_hellman_calc_public_key(server_DH_private_key)
-        print(f"server_DH_public_key: {server_DH_public_key}")
         client_socket.send(str(server_DH_public_key).encode())  # Send server's public key to the client
         client_DH_public_key = int(client_socket.recv(1024).decode())  # Receive client's public key
         print(f"Received DH key from client:{client_DH_public_key}")
@@ -58,8 +56,9 @@ def main():
                 if client_hash != protocol.calc_hash(client_encrypted_message):
                     raise ValueError("Hash mismatch in client's message.")
                 #if client_signature != protocol.calc_signature(client_hash, client_rsa_e, client_rsa_n):
-                if client_signature != pow(int(client_signature), client_rsa_e, client_rsa_n):
-                    raise ValueError("Signature verification failed for client's message.")
+                calculated_hash_from_signature = pow(client_signature, client_rsa_e, client_rsa_n)
+                if calculated_hash_from_signature != client_hash:
+                    raise ValueError("Signature mismatch: The message may have been tampered with or is not authentic.")
 
                 # Decrypt the client's message
                 decrypted_message = protocol.symmetric_decryption(client_encrypted_message, shared_secret)

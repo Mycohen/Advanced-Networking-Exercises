@@ -75,8 +75,9 @@ def main():
 
                 if server_hash != protocol.calc_hash(server_encrypted_message):
                     raise ValueError("Hash mismatch.")
-                if server_signature != pow(int(server_signature), server_rsa_e, server_rsa_n):
-                    raise ValueError("Signature verification failed.")
+                calculated_hash_from_signature = pow(server_signature, server_rsa_e, server_rsa_n)
+                if calculated_hash_from_signature != server_hash:
+                    raise ValueError("Signature mismatch: The message may have been tampered with or is not authentic.")
 
                 decrypted_response = protocol.symmetric_decryption(server_encrypted_message, shared_secret)
                 print(f"Server responded: {decrypted_response.decode()}")
