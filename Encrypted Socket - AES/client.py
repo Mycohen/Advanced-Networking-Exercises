@@ -9,45 +9,37 @@ def main():
     try:
         my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         my_socket.connect(("127.0.0.1", protocol.PORT))
-        print("# Step 1: client")
 
         # Diffie-Hellman key exchange
         client_DH_private_key = protocol.diffie_hellman_choose_private_key()
         client_DH_public_key = protocol.diffie_hellman_calc_public_key(client_DH_private_key)
 
         server_DH_public_key = int(my_socket.recv(1024).decode())
-        print(f"client_DH_public_key: {client_DH_public_key}")
 
-        print(f"received server_DH_public_key: {server_DH_public_key}")
 
         my_socket.send(str(client_DH_public_key).encode())
         shared_secret = protocol.diffie_hellman_calc_shared_secret(server_DH_public_key, client_DH_private_key)
-        print(f"client shared_secret:{shared_secret}")
-        print("Step 2: client")
 
         # RSA key exchange
         client_rsa_e, client_rsa_n = protocol.get_RSA_public_key(CLIENT_RSA_P, CLIENT_RSA_Q)
         client_rsa_d = protocol.get_RSA_private_key(CLIENT_RSA_P, CLIENT_RSA_Q, client_rsa_e)
         client_RSA_public = f"{client_rsa_e}, {client_rsa_n}"
-        print(f"client RSA public key: {client_RSA_public}")
 
         my_socket.send((client_RSA_public).encode())
         server_RSA_public = my_socket.recv(1024).decode().split(',')
-        print(f"Received RSA public key from server:{server_RSA_public}")
 
         server_rsa_e, server_rsa_n = int(server_RSA_public[0]), int(server_RSA_public[1])
 
 
 
         while True:
-            user_input = input("Enter command\n")
+            user_input = input("Enter a message\n")
             if user_input == 'EXIT':
                 my_socket.send(protocol.create_msg(user_input))
                 print("Exiting...")
                 break
 
             try:
-                print ("Step 3: server")
 
                 # Encrypt the message with the sycret shared key
                 encrypted_client_message = protocol.symmetric_encryption(user_input.encode(), shared_secret)
@@ -70,8 +62,7 @@ def main():
 
                 server_hash = int(server_hashed_message.decode())
                 server_signature = int(server_signed_message.decode())
-                print(f"Received server signature: {server_signature}")
-                print(f"calculated signature, client:{pow(int(server_signature), server_rsa_e, server_rsa_n)} ")
+
 
                 if server_hash != protocol.calc_hash(server_encrypted_message):
                     raise ValueError("Hash mismatch.")

@@ -22,23 +22,18 @@ def main():
         server_DH_public_key = protocol.diffie_hellman_calc_public_key(server_DH_private_key)
         client_socket.send(str(server_DH_public_key).encode())  # Send server's public key to the client
         client_DH_public_key = int(client_socket.recv(1024).decode())  # Receive client's public key
-        print(f"Received DH key from client:{client_DH_public_key}")
         shared_secret = protocol.diffie_hellman_calc_shared_secret(client_DH_public_key, server_DH_private_key)
-        print(f"server shared_secret: {shared_secret}")
-        print("Step 2: server")
+
         # Step 2: Perform RSA key exchange
         server_rsa_e, server_rsa_n = protocol.get_RSA_public_key(SERVER_RSA_P, SERVER_RSA_Q)
         server_rsa_d = protocol.get_RSA_private_key(SERVER_RSA_P, SERVER_RSA_Q, server_rsa_e)
         server_RSA_public = f"{server_rsa_e}, {server_rsa_n}"  # Prepare server's RSA public key
-        print(f"Server RSA public key: {server_RSA_public}")
         client_RSA_public = client_socket.recv(1024).decode().split(',')  # Receive client's RSA public key
-        print(f"Received RSA public key from client:{client_RSA_public}")
         client_rsa_e, client_rsa_n = int(client_RSA_public[0]), int(client_RSA_public[1])
         client_socket.send(server_RSA_public.encode())  # Send server's RSA public key to the client
 
         while True:
             try:
-                print ("Step 3: server")
                 # Step 3: Receive encrypted message, hash, and signature from client
                 valid_msg1, client_encrypted_message = protocol.get_msg(client_socket)
                 valid_msg2, client_hashed_message = protocol.get_msg(client_socket)
@@ -51,8 +46,7 @@ def main():
                 # Verify the client's message
                 client_hash = int(client_hashed_message.decode())
                 client_signature = int(client_signed_message.decode())
-                print(f"Received client signature: {client_signature}")
-                print(f"calculated signature, server:{pow(int(client_signature), client_rsa_e, client_rsa_n)}")
+
                 if client_hash != protocol.calc_hash(client_encrypted_message):
                     raise ValueError("Hash mismatch in client's message.")
                 #if client_signature != protocol.calc_signature(client_hash, client_rsa_e, client_rsa_n):
