@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="The program works. Fixing the exit command.">
+    <list default="true" id="d5d36fef-d498-4a05-bc90-c0c37429304c" name="Changes" comment="Before comments.">
       <change beforePath="$PROJECT_DIR$/Encrypted Socket - AES/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encrypted Socket - AES/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encrypted Socket - AES/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encrypted Socket - AES/protocol.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Encrypted Socket - AES/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encrypted Socket - AES/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +254,7 @@
       <workItem from="1736767342003" duration="17167000" />
       <workItem from="1736845710302" duration="2395000" />
       <workItem from="1736850365178" duration="21018000" />
-      <workItem from="1736934375896" duration="11606000" />
+      <workItem from="1736934375896" duration="12011000" />
     </task>
     <task id="LOCAL-00001" summary="Final chat program">
       <option name="closed" value="true" />
@@ -423,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736948392833</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Before comments.">
+      <option name="closed" value="true" />
+      <created>1736948777888</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1736948777888</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,18 +453,8 @@
     <MESSAGE value="i have a bug!!" />
     <MESSAGE value="before finish" />
     <MESSAGE value="The program works. Fixing the exit command." />
-    <option name="LAST_COMMIT_MESSAGE" value="The program works. Fixing the exit command." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Encrypted Socket - AES/protocol.py</url>
-          <line>128</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Before comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Before comments." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chat_ui_py$Test.coverage" NAME="Test Coverage Results" MODIFIED="1736943588072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Encrypted Socket - AES" />
@@ -465,10 +464,10 @@
     <SUITE FILE_PATH="coverage/client_py$SOA.coverage" NAME="SOA Coverage Results" MODIFIED="1733741618615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DNS enumeration" />
     <SUITE FILE_PATH="coverage/client_py$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1733653049863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chat_ui_py$HTTP_server_shell.coverage" NAME="HTTP_server_shell Coverage Results" MODIFIED="1734882461669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HTTP" />
-    <SUITE FILE_PATH="coverage/chat_ui_py$server.coverage" NAME="server Coverage Results" MODIFIED="1736948542055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Encrypted Socket - AES" />
+    <SUITE FILE_PATH="coverage/chat_ui_py$server.coverage" NAME="server Coverage Results" MODIFIED="1736948930920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Encrypted Socket - AES" />
     <SUITE FILE_PATH="coverage/Network$client.coverage" NAME="client Coverage Results" MODIFIED="1733061635388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/client_py$server_1.coverage" NAME="server_1 Coverage Results" MODIFIED="1733414311680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chat_ui_py$client.coverage" NAME="client Coverage Results" MODIFIED="1736948546929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Encrypted Socket - AES" />
+    <SUITE FILE_PATH="coverage/chat_ui_py$client.coverage" NAME="client Coverage Results" MODIFIED="1736948938846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Encrypted Socket - AES" />
     <SUITE FILE_PATH="coverage/client_py$test.coverage" NAME="test Coverage Results" MODIFIED="1733652789110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chat_exercise" />
     <SUITE FILE_PATH="coverage/client_py$server_1__1_.coverage" NAME="server_1 (1) Coverage Results" MODIFIED="1733739416562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Network$scapytest.coverage" NAME="scapytest Coverage Results" MODIFIED="1732556493963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
